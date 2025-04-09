@@ -25,5 +25,5 @@ public class AppUser {
     private LocalDate regDate;
     @OneToOne
     @JoinColumn(name = "details_id")
-    private Details details;
+    private Details userDetails;
 }
