@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.util.Assert;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +18,7 @@ public class BookRepositoryTest {
     
     Book book;
     Book book2;
-    
+
     @BeforeEach
     public void setUp() {
         book = new Book();
@@ -37,9 +36,8 @@ public class BookRepositoryTest {
     @Test
     public void testFindAllBooks() {
         Iterable<Book> books = bookRepository.findAll();
-        for (Book b : books) {
-            System.out.println(b.getTitle());
-        }
+        List<Book> bookList = (List<Book>) books;
+        assertEquals(2, bookList.size());
     }
     
     @Test
