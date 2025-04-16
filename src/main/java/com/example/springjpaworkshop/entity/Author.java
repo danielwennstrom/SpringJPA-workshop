@@ -3,6 +3,7 @@ package com.example.springjpaworkshop.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Builder
@@ -17,6 +18,10 @@ public class Author {
     private String firstName;
     private String lastName;
     @ManyToMany
-    @Singular
-    private Set<Book> writtenBooks;
+    @JoinTable(
+            name = "author_books",
+            joinColumns = @JoinColumn(name = "author_id"),
+            inverseJoinColumns = @JoinColumn(name = "book_id")
+    )
+    private Set<Book> writtenBooks = new HashSet<>();
 }
