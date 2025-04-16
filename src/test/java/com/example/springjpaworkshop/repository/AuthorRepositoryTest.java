@@ -72,11 +72,11 @@ public class AuthorRepositoryTest {
     }
     
     @Test
-    public void testFindAuthorByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase() {
-        List<Author> authors = authorRepository.findAuthorByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase("Svens");
+    public void testFindAuthorByFirstNameOrLastName() {
+        List<Author> authors = authorRepository.findAuthorByFirstNameOrLastName("Svens");
         assertEquals(1, authors.size());
 
-        List<Author> authorsEmpty = authorRepository.findAuthorByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase("Eriks");
+        List<Author> authorsEmpty = authorRepository.findAuthorByFirstNameOrLastName("Eriks");
         assertEquals(0, authorsEmpty.size());
     }
     

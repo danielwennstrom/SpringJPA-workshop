@@ -14,7 +14,7 @@ public interface AuthorRepository extends CrudRepository<Author, Integer> {
     List<Author> findAuthorByFirstName(String firstName);
     List<Author> findAuthorByLastName(String lastName);
     @Query("SELECT a FROM Author a WHERE a.firstName LIKE %:keyWord% OR a.lastName LIKE %:keyWord%")
-    List<Author> findAuthorByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(@Param("keyWord") String keyWord);
+    List<Author> findAuthorByFirstNameOrLastName(@Param("keyWord") String keyWord);
     @Query("SELECT a FROM Author a JOIN a.writtenBooks b WHERE b.id = :bookId")
     List<Author> findAuthorByBook_Id(@Param("bookId") int bookId);
     @Modifying
