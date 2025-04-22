@@ -44,5 +44,6 @@ public class AppUser {
         this.bookLoans.remove(bookLoan);
         bookLoan.setBorrower(null);
         bookLoan.getBook().setAvailable(true);
+        bookLoan.setReturned(true);
     }
 }
