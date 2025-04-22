@@ -27,7 +27,8 @@ public class BookLoan {
     @JoinColumn(name = "book_id")
     private Book book;
     
-    public BookLoan(Book book) {
+    public BookLoan(AppUser borrower, Book book) {
+        this.borrower = borrower;
         this.book = book;
         this.loanDate = LocalDate.now();
         this.dueDate = LocalDate.now().plusDays(book.getMaxLoanDays());

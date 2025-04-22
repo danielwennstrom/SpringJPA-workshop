@@ -69,10 +69,10 @@ public class AppUserRepositoryTest {
         book2.setMaxLoanDays(60);
         book2.setAvailable(false);
 
-        bookLoan = new BookLoan(book);
+        bookLoan = new BookLoan(appUser, book);
         bookLoan.setBorrower(appUser);
 
-        bookLoan2 = new BookLoan(book2);
+        bookLoan2 = new BookLoan(appUser, book2);
         bookLoan2.setBorrower(appUser2);
         
         detailsRepository.save(details);
