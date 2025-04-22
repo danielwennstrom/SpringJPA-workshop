@@ -24,4 +24,12 @@ public class Author {
             inverseJoinColumns = @JoinColumn(name = "book_id")
     )
     private Set<Book> writtenBooks = new HashSet<>();
+    
+    public void addBook(Book book) {
+        writtenBooks.add(book);
+    }
+    
+    public void removeBook(Book book) {
+        writtenBooks.remove(book);
+    }
 }
