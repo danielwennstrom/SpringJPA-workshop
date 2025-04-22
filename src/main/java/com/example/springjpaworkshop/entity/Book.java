@@ -12,6 +12,7 @@ public class Book {
     private String isbn;
     private String title;
     private int maxLoanDays;
+    private boolean available = true;
     
     @PrePersist
     public void prePersist() {

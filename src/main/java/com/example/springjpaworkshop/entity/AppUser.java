@@ -32,12 +32,17 @@ public class AppUser {
     private List<BookLoan> bookLoans = new ArrayList<>();
     
     public void addBookLoan(BookLoan bookLoan) {
+        if (!bookLoan.getBook().isAvailable())
+            throw new RuntimeException("Book is not available for loan.");
+        
         this.bookLoans.add(bookLoan);
         bookLoan.setBorrower(this);
+        bookLoan.getBook().setAvailable(false);
     }
     
     public void removeBookLoan(BookLoan bookLoan) {
         this.bookLoans.remove(bookLoan);
         bookLoan.setBorrower(null);
+        bookLoan.getBook().setAvailable(true);
     }
 }
